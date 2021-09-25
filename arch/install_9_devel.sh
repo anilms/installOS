@@ -6,5 +6,6 @@ sudo pacman -S --needed \
     gdb \
     nasm \
     cmake \
+    mercurial \
     wget
 

@@ -31,7 +31,7 @@ git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
 #git clone https://github.com/daniruiz/flat-remix-gnome.git
 
 cd WhiteSur-gtk-theme/
-./install.sh -i arch -c light -N glassy
+./install.sh -i arch -N glassy
 cd -
 
 cd WhiteSur-icon-theme/
