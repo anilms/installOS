@@ -46,11 +46,11 @@ sgdisk -c 2:"ROOT" ${DISK}
 echo -e "\nCreating Filesystems...\n$HR"
 if [[ ${DISK} =~ "nvme" ]]; then
     mkfs.vfat -F32 -n "UEFISYS" "${DISK}p1"
-    mkfs.ext4 -L "ROOT" "${DISK}p2" -f
+    mkfs.ext4 -L "ROOT" "${DISK}p2"
     mount -t ext4 "${DISK}p2" /mnt
 else
     mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-    mkfs.ext4 -L "ROOT" "${DISK}2" -f
+    mkfs.ext4 -L "ROOT" "${DISK}2"
     mount -t ext4 "${DISK}2" /mnt
 fi
 
@@ -89,7 +89,7 @@ title Arch Linux
 linux /vmlinuz-linux-lts
 initrd	/${cpu}-ucode.img
 initrd  /initramfs-linux-lts.img
-options root=LABEL=ROOT rw rootflags=subvol=@
+options root=LABEL=ROOT rw quiet loglevel=3 vga=current vt.global_cursor_default=0
 EOF
 
 cat <<EOF > /mnt/boot/loader/loader.conf
