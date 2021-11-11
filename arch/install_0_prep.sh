@@ -29,7 +29,7 @@ pacman -S --noconfirm --needed gptfdisk
 echo "--------------------------------------"
 echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
-mkdir /mnt
+mkdir -p /mnt
 # Partition disk
 sgdisk -Z ${DISK} # zap all on disk
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
