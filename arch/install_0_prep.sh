@@ -24,14 +24,18 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download          "
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -S --noconfirm --needed reflector
+pacman -S \
+    reflector \
+    --noconfirm --needed
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 reflector -a 48 -c "US" -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 #reflector -a 48 -c "US" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S --noconfirm --needed gptfdisk
+pacman -S \
+    gptfdisk \
+    --noconfirm --needed
 
 
 

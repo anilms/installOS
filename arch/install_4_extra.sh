@@ -15,6 +15,7 @@ sudo pacman -S \
     cmake \
     mercurial \
     wget \
+    openssh \
     --noconfirm --needed
 
 cat ../common/_vimrc >> ~/.vimrc

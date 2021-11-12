@@ -1,5 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --needed \
-    nvidia-lts
+sudo pacman -S \
+    nvidia-lts \
+    --noconfirm --needed
 

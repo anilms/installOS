@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --needed \
+sudo pacman -S \
     gnome-tweaks \
     noto-fonts \
     ttf-roboto \
@@ -8,38 +8,8 @@ sudo pacman -S --needed \
     ttf-hack \
     ttf-roboto \
     ttf-roboto-mono \
-    ttf-dejavu
-
-# Install gnome themes
-#sudo pacman -S --needed \
-#    arc-gtk-theme \
-#    papirus-icon-theme \
-#    variety
-
-#yay -S \
-#    flat-remix-gnome
-#    flat-remix \
-#    flat-remix-gtk
-
-#yay -S \
-#    whitesur-gtk-theme-git \
-#    whitesur-icon-theme-git
-#    whitesur-cursor-theme-git
-
-git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
-#git clone https://github.com/daniruiz/flat-remix-gnome.git
-
-cd WhiteSur-gtk-theme/
-./install.sh -i arch -N glassy
-cd -
-
-cd WhiteSur-icon-theme/
-./install.sh
-cd -
-
-#cp -r flat-remix-gnome/Flat-Remix-Blue-fullPanel ~/.themes/
-
+    ttf-dejavu \
+    --noconfirm --needed \
 
 
 # Gnome sane settings
@@ -61,10 +31,25 @@ gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 10'
 gsettings set org.gnome.desktop.interface monospace-font-name "Hack 9"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
 
+# Keyboard shortcuts
+dconf load /org/gnome/desktop/wm/keybindings/ < gnome/wm-keybindings.dconf.bak
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < gnome/media-keys-keybindings.dconf.bak
+
+
+exit
+
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+
+cd WhiteSur-gtk-theme/
+./install.sh -i arch -N glassy
+cd -
+
+cd WhiteSur-icon-theme/
+./install.sh
+cd -
+
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-light-solid'
 gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-light'
 gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur'
 
-# Keyboard shortcuts
-dconf load /org/gnome/desktop/wm/keybindings/ < gnome/wm-keybindings.dconf.bak
-dconf load /org/gnome/settings-daemon/plugins/media-keys/ < gnome/media-keys-keybindings.dconf.bak
