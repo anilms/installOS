@@ -1,0 +1,23 @@
+set nocompatible
+source $VIMRUNTIME/mswin.vim
+syntax enable
+
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+set hls
+set incsearch
+set ignorecase
+
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set cursorline
+set laststatus=2
+set ruler
+

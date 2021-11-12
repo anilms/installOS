@@ -6,9 +6,18 @@
 # NOTE
 # Mount windows partitions for bootloader to detect
 
-# Update this as needed
-DISK=/dev/sda
-cpu=intel
+if [ -z "${CONFIG_DISK}" ] || [ -z "${CONFIG_CPU}" ]; then
+	echo "Set parameters in setup.conf and source"
+	exit
+fi
+
+echo ""
+echo "-------------------------------------------------"
+echo "Disk: ${CONFIG_DISK}"
+echo "Cpu: ${CONFIG_CPU}"
+echo ""
+echo ""
+
 
 # Update pacman mirrors
 echo "-------------------------------------------------"
@@ -31,27 +40,27 @@ echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
 mkdir -p /mnt
 # Partition disk
-sgdisk -Z ${DISK} # zap all on disk
-sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
+sgdisk -Z ${CONFIG_DISK} # zap all on disk
+sgdisk -a 2048 -o ${CONFIG_DISK} # new gpt disk 2048 alignment
 
-sgdisk -n 1:0:+1000M ${DISK} # partition 1 (UEFI SYS), default start block, 512MB
-sgdisk -n 2:0:0     ${DISK} # partition 2 (Root), default start, remaining
+sgdisk -n 1:0:+1000M ${CONFIG_DISK} # partition 1 (UEFI SYS), default start block, 512MB
+sgdisk -n 2:0:0     ${CONFIG_DISK} # partition 2 (Root), default start, remaining
 
-sgdisk -t 1:ef00 ${DISK}
-sgdisk -t 2:8300 ${DISK}
+sgdisk -t 1:ef00 ${CONFIG_DISK}
+sgdisk -t 2:8300 ${CONFIG_DISK}
 
-sgdisk -c 1:"UEFISYS" ${DISK}
-sgdisk -c 2:"ROOT" ${DISK}
+sgdisk -c 1:"UEFISYS" ${CONFIG_DISK}
+sgdisk -c 2:"ROOT" ${CONFIG_DISK}
 
 echo -e "\nCreating Filesystems...\n$HR"
-if [[ ${DISK} =~ "nvme" ]]; then
-    mkfs.vfat -F32 -n "UEFISYS" "${DISK}p1"
-    mkfs.ext4 -L "ROOT" "${DISK}p2"
-    mount -t ext4 "${DISK}p2" /mnt
+if [[ ${CONFIG_DISK} =~ "nvme" ]]; then
+    mkfs.vfat -F32 -n "UEFISYS" "${CONFIG_DISK}p1"
+    mkfs.ext4 -L "ROOT" "${CONFIG_DISK}p2"
+    mount -t ext4 "${CONFIG_DISK}p2" /mnt
 else
-    mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-    mkfs.ext4 -L "ROOT" "${DISK}2"
-    mount -t ext4 "${DISK}2" /mnt
+    mkfs.vfat -F32 -n "UEFISYS" "${CONFIG_DISK}1"
+    mkfs.ext4 -L "ROOT" "${CONFIG_DISK}2"
+    mount -t ext4 "${CONFIG_DISK}2" /mnt
 fi
 
 
@@ -71,7 +80,7 @@ pacstrap /mnt \
     base-devel \
     linux-lts \
     linux-firmware \
-    ${cpu}-ucode \
+    ${CONFIG_CPU}-ucode \
     vim \
     nano \
     git \
@@ -87,7 +96,7 @@ bootctl install --esp-path=/mnt/boot
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux-lts
-initrd	/${cpu}-ucode.img
+initrd	/${CONFIG_CPU}-ucode.img
 initrd  /initramfs-linux-lts.img
 options root=LABEL=ROOT rw quiet loglevel=3 vga=current vt.global_cursor_default=0
 EOF
