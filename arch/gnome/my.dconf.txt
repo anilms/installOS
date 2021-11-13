@@ -51,6 +51,7 @@ default-folder-viewer='list-view'
 
 [org/gnome/shell]
 enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com']
+favorite-apps=['org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'firefox.desktop', 'visual-studio-code.desktop']
 welcome-dialog-last-shown-version='41.1'
 
 
