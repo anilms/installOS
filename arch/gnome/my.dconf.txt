@@ -1,0 +1,96 @@
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/gnome/Blobs.svg'
+
+
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
+
+[org/gnome/desktop/input-sources]
+xkb-options=['caps:ctrl_modifier']
+
+
+[org/gnome/desktop/interface]
+clock-format='12h'
+document-font-name='Noto Sans 10'
+enable-hot-corners=false
+font-name='Noto Sans 10'
+gtk-theme='Adwaita-dark'
+monospace-font-name='Hack 9'
+show-battery-percentage=true
+
+
+[org/gnome/desktop/privacy]
+old-files-age=uint32 30
+recent-files-max-age=30
+remove-old-temp-files=false
+remove-old-trash-files=false
+
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/gnome/Blobs.svg'
+
+
+[org/gnome/desktop/wm/keybindings]
+show-desktop=['<Super>d']
+
+
+[org/gnome/desktop/wm/preferences]
+audible-bell=false
+titlebar-font='Noto Sans Bold 10'
+
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name', 'size', 'type', 'date_modified']
+
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+
+
+[org/gnome/shell]
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com']
+welcome-dialog-last-shown-version='41.1'
+
+
+[org/gnome/shell/app-switcher]
+current-workspace-only=true
+
+
+[org/gnome/software]
+download-updates=false
+
+
+[org/gnome/system/location]
+enabled=true
+
+
+[org/gtk/settings/file-chooser]
+clock-format='12h'
+
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>t'
+command='/usr/bin/gnome-terminal'
+name='Run Terminal'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>e'
+command='/usr/bin/nautilus'
+name='Run Explorer'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>g'
+command='/usr/bin/google-chrome-stable'
+name='Run Chrome'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Super>f'
+command='/usr/bin/firefox'
+name='Run Firefox'
+
+
