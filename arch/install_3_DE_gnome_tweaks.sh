@@ -3,14 +3,18 @@
 sudo pacman -S \
     gnome-tweaks \
     noto-fonts \
+    noto-fonts-cjk \
+    ttf-indic-otf \
+    ttf-droid \
+    ttf-croscore \
+    ttf-liberation \
     ttf-roboto \
     ttf-roboto-mono \
     ttf-hack \
-    ttf-roboto \
-    ttf-roboto-mono \
     ttf-dejavu \
-    --noconfirm --needed \
+    --noconfirm --needed
 
+fc-cache
 
 # gnome conf
 dconf load / < gnome/my.dconf.txt
