@@ -4,14 +4,7 @@ sudo pacman -S \
     gnome-tweaks \
     noto-fonts \
     noto-fonts-cjk \
-    ttf-indic-otf \
-    ttf-droid \
-    ttf-croscore \
-    ttf-liberation \
-    ttf-roboto \
-    ttf-roboto-mono \
     ttf-hack \
-    ttf-dejavu \
     --noconfirm --needed
 
 fc-cache
