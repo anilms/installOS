@@ -11,6 +11,8 @@ pacman -S \
     ntfs-3g \
     xdg-user-dirs  \
     networkmanager \
+    bluez \
+    bluez-utils \
     reflector \
     pacman-contrib \
     plasma-desktop \
@@ -42,6 +44,10 @@ systemctl enable systemd-timesyncd.service
 
 systemctl enable sddm.service
 # systemctl start sddm.service
+
+systemctl enable bluetooth.service
+# systemctl start bluetooth.service
+
 
 echo ""
 echo ""

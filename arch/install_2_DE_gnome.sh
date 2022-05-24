@@ -11,6 +11,8 @@ pacman -S \
     ntfs-3g \
     xdg-user-dirs  \
     networkmanager \
+    bluez \
+    bluez-utils \
     reflector \
     pacman-contrib \
     gnome \
@@ -25,6 +27,9 @@ systemctl enable systemd-timesyncd.service
 
 systemctl enable gdm.service
 #systemctl start gdm.service
+
+systemctl enable bluetooth.service
+# systemctl start bluetooth.service
 
 echo ""
 echo ""
