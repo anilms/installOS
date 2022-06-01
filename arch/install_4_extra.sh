@@ -2,11 +2,13 @@
 
 sudo pacman -S \
     go \
+    rust \
     gvim \
     firefox \
     mplayer \
     ffmpeg \
     neofetch \
+    lsb-release \
     jre-openjdk \
     jdk-openjdk \
     gdb \
