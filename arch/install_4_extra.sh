@@ -3,6 +3,7 @@
 sudo pacman -S \
     go \
     rust \
+    clang \
     gvim \
     firefox \
     mplayer \
