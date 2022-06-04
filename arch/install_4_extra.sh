@@ -19,6 +19,7 @@ sudo pacman -S \
     wget \
     openssh \
     gnu-free-fonts \
+    noto-fonts-extra \
     ttf-bitstream-vera \
     ttf-croscore \
     ttf-dejavu \
