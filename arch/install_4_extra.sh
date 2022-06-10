@@ -6,7 +6,7 @@ sudo pacman -S \
     clang \
     gvim \
     firefox \
-    mplayer \
+    mpv \
     ffmpeg \
     neofetch \
     lsb-release \
@@ -14,6 +14,8 @@ sudo pacman -S \
     jdk-openjdk \
     gdb \
     nasm \
+    meson \
+    ninja \
     cmake \
     mercurial \
     wget \
