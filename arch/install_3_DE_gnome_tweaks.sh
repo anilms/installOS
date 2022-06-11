@@ -17,6 +17,7 @@ dconf load / < gnome/my.dconf.txt
 
 #cd WhiteSur-gtk-theme/
 #./install.sh -i arch -N glassy
+# ./install.sh -o solid -c dark -i arch -m -N normal -HD --nord
 #cd -
 
 #cd WhiteSur-icon-theme/
