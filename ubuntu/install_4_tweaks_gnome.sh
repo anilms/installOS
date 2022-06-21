@@ -17,10 +17,6 @@ gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 10'
 gsettings set org.gnome.desktop.interface monospace-font-name "Hack 9"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
 
-gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-light-solid'
-gsettings set org.gnome.shell.extensions.user-theme name 'WhiteSur-light'
-gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur'
-
 dconf load /org/gnome/desktop/wm/keybindings/ < gnome/wm-keybindings.dconf.bak
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < gnome/media-keys-keybindings.dconf.bak
 
