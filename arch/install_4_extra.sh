@@ -1,6 +1,8 @@
 #!/bin/bash
 
 sudo pacman -S \
+    zsh \
+    zsh-completions \
     go \
     rust \
     clang \
